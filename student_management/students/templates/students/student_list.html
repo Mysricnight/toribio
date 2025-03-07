@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+          body {
+             font-family: Arial, sans-serif;
+             background-color: #f4f4f4;
+             margin: 0;
+             padding: 0;
+          }
+          .container {
+             width: 80%;
+             margin: auto;
+             background: white;
+             padding: 20px;
+             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          }
+          h1, h2 {
+             color: #333;
+          }
+          button, .btn {
+             background-color: #4CAF50;
+             color: white;
+             padding: 10px 15px;
+             border: none;
+             cursor: pointer;
+             text-decoration: none;
+             display: inline-block;
+          }
+          button:hover, .btn:hover {
+             background-color: #45a049;
+          }
+          form {
+             display: flex;
+             flex-direction: column;
+             gap: 10px;
+          }
+          input, select {
+             padding: 10px;
+             border: 1px solid #ccc;
+             border-radius: 5px;
+          }
+          table {
+             width: 100%;
+             border-collapse: collapse;
+          }
+          table, th, td {
+             border: 1px solid #ddd;
+             padding: 10px;
+             text-align: left;
+          }
+          thead {
+             background-color: #4CAF50;
+             color: white;
+          }
+       </style>
+    </head>
+    <body>
+        {% block content %}
+          <h2>Student List</h2>
+          <a href="{% url 'student_create' %}" class="btn btn-primary">Add Student</a>
+          <table class="table">
+            <tr>
+              <th>ID</th><th>Name</th><th>Course</th><th>Actions</th>
+            </tr>
+            {% for student in students %}
+            <tr>
+              <td>{{ student.StudentID }}</td>
+              <td>{{ student.FirstName }} {{ student.LastName }}</td>
+              <td>{{ student.Course }}</td>
+              <td>
+                <a href="{% url 'student_detail' student.pk %}" class="btn btn-info">View</a>
+                <a href="{% url 'student_update' student.pk %}" class="btn btn-warning">Edit</a>
+                <a href="{% url 'student_delete' student.pk %}" class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+        {% endblock %}
+        
+        <script src="" async defer></script>
+    </body>
+</html>
