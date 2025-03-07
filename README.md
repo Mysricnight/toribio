@@ -34,5 +34,6 @@ Navigate to the project directory using the command line.
 Run the Django development server to start the application.
 
 9. Open and Test the Application
-Access the running application in a web browser.
-Test creating, editing, and deleting student records.
+Access the running application in the web browser.
+Test each one of this 3  creating, editing, and deleting student records. if its working then your done
+
